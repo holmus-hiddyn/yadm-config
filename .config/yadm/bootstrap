@@ -1,0 +1,36 @@
+#!/bin/sh
+
+system_type=$(uname -s)
+BOOTSTRAP_D="$HOME/.config/yadm/bootstrap.d"
+
+source "${ZDOTDIR:-$HOME/.config/zsh}/helpers.zsh"
+
+if [ ! -d "$BOOTSTRAP_D" ]; then
+  exit 0
+fi
+
+for bootstrap in "$BOOTSTRAP_D/**/*.sh"; do
+  test -x $bootstrap && ./$bootstrap
+done
+
+for i in "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_CACHE_HOME" "$XDG_BIN_HOME"; do
+  mkdir -p "$i"
+done
+
+if [ "$system_type" = "Darwin" ]; then
+  if ! __ana_has brew; then
+    echo "Installing Homebrew..."
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+  fi 
+
+  if [ -f "$HOME/.config/darwin/Brewfile" ]; then
+    brew bundle --file "$HOME/.config/darwin/Brewfile"
+  fi
+
+  # if __ana_has fish; then
+  #   echo "Setting Fish as default shell..."
+  #   echo `which fish` | sudo tee -a /etc/shells
+  #   chsh -s `which fish`
+  # fi
+fi
+
