@@ -57,4 +57,12 @@ export NPM_CONFIG_CACHE="$XDG_CACHE_HOME/npm"
 # if you do this one, make sure to add $XDG_DATA_HOME/npm/bin to the $PATH,
 # otherwise global installed executables won't be accessible on the cli.
 export NPM_CONFIG_PREFIX="$XDG_DATA_HOME/npm"
-export PATH="$PATH:$XDG_DATA_HOME/npm/bin"
+export PATH="$XDG_DATA_HOME/npm/bin:$PATH"
+
+# ==========================================================================
+# Editors
+# ==========================================================================
+
+export EMACSDIR="$XDG_CONFIG_HOME/emacs"
+export DOOMDIR="$XDG_CONFIG_HOME/doom"
+export PATH="$EMACSDIR/bin:/Applications/Emacs.app/Contents/MacOS/bin:$PATH"

@@ -12,11 +12,11 @@ alias ezv="$EDITOR $XDG_CONFIG_HOME/zsh/vars.zsh"
 
 g() { [[ $# = 0 ]] && git status --short . || git $*; }
 
-# alias ls="gls --color=auto --group-directories-first -N"
+alias ls="gls --color=auto --group-directories-first -N"
 # macOS-specific; GNU ls doesn't support ACLs and macOS doesn't have getfacl
-alias ls="ls -G"
+# alias ls="ls -G"
 alias l='ls -1'
-alias le="ls -ale@"
+# alias le="ls -ale@"
 alias la="ls -Al"
 alias ll='ls -l'
 alias la='LC_COLLATE=C ls -la'
@@ -37,7 +37,7 @@ alias ci='brci'
 
 alias md='mkdir -p'
 
-y() { [[ $# = 0 ]] && yadm status --short  || yadm $*; }
+y() { [[ $# = 0 ]] && yadm status --short || yadm $*; }
 alias ya='y add'
 alias yau='ya -u'
 alias yal='y alt'

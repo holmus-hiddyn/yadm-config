@@ -15,12 +15,14 @@ bindkey -M menuselect '^[[Z'  reverse-menu-complete
 bindkey -M menuselect '^C'    reset-prompt
 
 # Left and right should jump through words
-# Opt-Left
+# Opt-Left or ctrl+b
 bindkey           '^[^[[D'  backward-word
 bindkey -M vicmd  '^[^[[D'  backward-word
-# Opt-Right
+bindkey           '^b'      backward-word        
+# Opt-Right or ctrl+f
 bindkey           '^[^[[C'  forward-word
 bindkey -M vicmd  '^[^[[C'  forward-word
+bindkey           '^f'      forward-word
 # C-Left
 bindkey           '^[[1;5D' vi-backward-word
 bindkey -M vicmd  '^[[1;5D' vi-backward-word

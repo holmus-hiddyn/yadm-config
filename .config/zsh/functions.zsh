@@ -12,17 +12,17 @@ __ensure_emacs() {
   __ensure_repo "doomemacs/doomemacs" "$XDG_CONFIG_HOME/emacs"
 
   # Clone, install dependencies, build, sign, and install extensions for Emacs
-  # local builddir="$XDG_DATA_HOME/build-emacs-for-macos"
+  local builddir="$XDG_DATA_HOME/build-emacs-for-macos"
 
-  # __ensure_repo jimeh/build-emacs-for-macos $builddir
-  # {{ .homebrew.prefix }}/bin/brew bundle --file "$builddir/Brewfile"
-  # [[ ! -d "/Applications/Emacs.app" ]] && \
-  # "$builddir/build-emacs-for-macos" emacs-29 --no-dbus --no-frame-refocus --no-archive
-  # if read -q "REPLY?Replace current Emacs installation? "; then
-  #   /bin/rm -rf /Applications/Emacs.app
-  #   mv $builddir/builds/*/Emacs.app /Applications && \
-  #     codesign --force --deep -s - /Applications/Emacs.app
-  # fi
+  __ensure_repo jimeh/build-emacs-for-macos $builddir
+  /opt/homebrew/bin/brew bundle --file "$builddir/Brewfile"
+  [[ ! -d "/Applications/Emacs.app" ]] && \
+  "$builddir/build-emacs-for-macos" emacs-29 --no-dbus --no-frame-refocus --no-archive
+  if read -q "REPLY?Replace current Emacs installation? "; then
+    /bin/rm -rf /Applications/Emacs.app
+    mv $builddir/builds/*/Emacs.app /Applications && \
+      codesign --force --deep -s - /Applications/Emacs.app
+  fi
   # brew tap d12frosted/emacs-plus
   # yes | "$EMACSDIR/bin/doom" install
 }
