@@ -10,6 +10,6 @@ function ensure_repo -d "Check if repository exists and clone if not"
             git clone "$base_url/$argv[1]" $argv[2]
         end
     else
-        echo "ERR: Directory exists and is not empty."
+        # echo "ERR: Directory exists and is not empty."
     end
 end

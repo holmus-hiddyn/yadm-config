@@ -15,17 +15,12 @@ typeset -gU cdpath PATH path FPATH fpath MANPATH manpath
 source "$ZDOTDIR/helpers.zsh"
 source "$ZDOTDIR/vars.zsh"
 
-# {{- if not .transient }}
-# __ana_has "zinit" || {
-#   __load_repo zdharma-continuum/zinit ${ZINIT_HOME:-$HOME/.config/zsh/.zinit} \
-#     zinit.zsh
-# }
-# {{- end }}
-
-# for i in "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_CACHE_HOME" \
-#   "$XDG_BIN_HOME" "$XDG_CONFIG_HOME/asdf"; do
-#   mkdir -p "$i"
-# done
+if [[ ! "$(yadm config local.class)" = "transient" ]]; then
+__ana_has "zinit" || {
+  __load_repo zdharma-continuum/zinit ${ZINIT_HOME:-$HOME/.config/zsh/.zinit} \
+    zinit.zsh
+}
+fi
 
 # ============================================================================
 # Load modules
@@ -37,12 +32,11 @@ zmodload zsh/complist
 autoload -U add-zsh-hook
 
 source "$ZDOTDIR/config.zsh"
-# source "$ZDOTDIR/completion.zsh"
-# source "$ZDOTDIR/functions.zsh"
+source "$ZDOTDIR/functions.zsh"
 source "$ZDOTDIR/keybinds.zsh"
 source "$ZDOTDIR/prompt.zsh"
 source "$ZDOTDIR/aliases.zsh"
-# source "$ZDOTDIR/zinit.zsh"
+source "$ZDOTDIR/zinit.zsh"
 
 # ============================================================================
 # Completion
@@ -61,12 +55,12 @@ else
     compinit -C -d $ZSH_CACHE/zcompdump
 fi
 
-# __ana_has 'zoxide' && {
-# 	eval "$(zoxide init zsh)"
-# }
+__ana_has 'zoxide' && {
+	eval "$(zoxide init zsh)"
+}
 
-# __ana_has 'asdf' && {
-#  . {{ .homebrew.prefix }}/opt/asdf/libexec/asdf.sh
-# }
+__ana_has 'asdf' && {
+ source "/opt/homebrew/opt/asdf/libexec/asdf.sh"
+}
 
 ANA_SOURCE="$ANA_SOURCE }"

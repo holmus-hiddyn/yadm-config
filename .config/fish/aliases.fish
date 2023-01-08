@@ -1,6 +1,6 @@
-alias ls    'exa -la'
-alias l     'exa -1a'
-alias la    'exa -la'
+# alias ls    'ls -lG@'
+alias l     'ls -la'
+alias la    'ls -laG@'
 alias rm    'rm -i'
 alias cp    'cp -i'
 alias mv    'mv -i'
@@ -19,7 +19,7 @@ alias brcz  'brcu --zap'
 alias ci    'brci'
 
 alias brup  'b update && b upgrade && b cleanup'
-alias bbf   'b bundle install --file $DOTFILES_CONFIG/darwin/Brewfile'
+alias bbun  'b bundle install --file $XDG_CONFIG_HOME/darwin/Brewfile'
 
 alias cz    'chezmoi'
 alias czi   'cz init'
@@ -33,9 +33,9 @@ alias del   'trash'
 
 alias e     '$EDITOR'
 
-alias esfa  '$EDITOR $DOTFILES_CONFIG/fish/aliases.fish'
-alias esfc  '$EDITOR $DOTFILES_CONFIG/fish/config.fish'
-alias eehc  '$EDITOR $DOTFILES_CONFIG/helix/config.toml'
+alias esfa  '$EDITOR $XDG_CONFIG_HOME/fish/aliases.fish'
+alias esfc  '$EDITOR $XDG_CONFIG_HOME/fish/config.fish'
+alias eehc  '$EDITOR $XDG_CONFIG_HOME/helix/config.toml'
 
 function g
     if test (count $argv) -gt 0

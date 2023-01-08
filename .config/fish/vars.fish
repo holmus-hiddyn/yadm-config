@@ -19,7 +19,7 @@ set -Ux GNUPGHOME "$XDG_CONFIG_HOME/gnupg"
 set -Ux MANWIDTH 88
 
 if type -q "/opt/homebrew/bin/bat"
-    set -Ux MANPAGER "sh -c 'col -bx | bat -l man -p'"
+    set -Ux MANPAGER "nvim +Man!"
 end
 
 set -Ux HOMEBREW_NO_ANALYTICS 1
