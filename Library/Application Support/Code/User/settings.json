@@ -1,0 +1,9 @@
+{
+    "telemetry.telemetryLevel": "off",
+    "workbench.startupEditor": "none",
+    "explorer.confirmDragAndDrop": false,
+    "security.workspace.trust.untrustedFiles": "open",
+    "explorer.confirmDelete": false,
+    "editor.fontFamily": "SF Mono, Menlo, Monaco, 'Courier New', monospace",
+    "workbench.iconTheme": "vscode-icons"
+}

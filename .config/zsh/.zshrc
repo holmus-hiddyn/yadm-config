@@ -12,8 +12,6 @@ export ANA_SOURCE="$ANA_SOURCE -> .zshrc {"
 # add both PATH var and path array)
 typeset -gU cdpath PATH path FPATH fpath MANPATH manpath
 
-# echo "path: $PATH"
-
 source "$ZDOTDIR/helpers.zsh"
 source "$ZDOTDIR/vars.zsh"
 

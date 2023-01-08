@@ -1,3 +1,5 @@
+# zsh/keybinds.zsh
+
 # vi mode
 bindkey -v
 

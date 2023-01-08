@@ -8,15 +8,13 @@ export DOTFILES_CONFIG="$DOTFILES/yadm"
 export ZDOTDIR="$XDG_CONFIG_HOME/zsh"
 # export DOTFILES_ASSETS="$DOTFILES/assets"
 
-export HISTFILE="$HOME/.local/zsh_history"
-
 if [ -z "$ANA_INIT" ]; then
-  export ANA_SOURCE="$ANA_SOURCE -> .zprofile"
+  export ANA_SOURCE="$ANA_SOURCE -> .zshenv"
   # TODO: 1password-cli puts op in /usr/local/bin for some stupid reason; fix this someday
   path=($XDG_BIN_HOME /opt/homebrew/bin /usr/local/bin /usr/sbin /usr/bin /sbin /bin)
   # path=($XDG_BIN_HOME /usr/local/bin /usr/sbin /usr/bin /sbin /bin)
   fpath=($XDG_BIN_HOME $fpath)
   export ANA_INIT=1
 else
-  export ANA_SOURCE="$ANA_SOURCE -> .zprofile:skip-init"
+  export ANA_SOURCE="$ANA_SOURCE -> .zshenv:skip-init"
 fi

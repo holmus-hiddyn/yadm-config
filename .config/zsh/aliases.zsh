@@ -28,7 +28,7 @@ alias br='b reinstall'
 alias bu='b uninstall'
 alias bs='b search'
 alias bz='bu --zap'
-alias bbun='b bundle --file $XDG_CONFIG_HOME/darwin/Brewfile'
+alias bbun="b bundle --file '$XDG_CONFIG_HOME/darwin/Brewfile'"
 
 alias brci='bi --cask'
 alias brcr='br --cask'

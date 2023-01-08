@@ -26,6 +26,7 @@ cask "brave-browser-beta"
 cask "alt-tab"
 cask "appcleaner"
 cask "hazel"
+cask "iterm2"
 
 cask "1password"
 cask "1password-cli"
