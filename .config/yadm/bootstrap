@@ -15,7 +15,8 @@ for bootstrap in "$BOOTSTRAP_D/**/*.sh"; do
   test -x $bootstrap && ./$bootstrap
 done
 
-for i in "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_CACHE_HOME" "$XDG_BIN_HOME"; do
+for i in "$XDG_CONFIG_HOME" "$XDG_DATA_HOME" "$XDG_CACHE_HOME" "$XDG_BIN_HOME" \
+  "$HOME/Projects" "$HOME/Sandbox"; do
   mkdir -p "$i"
 done
 
@@ -31,10 +32,12 @@ if [ "$system_type" = "Darwin" ]; then
     brew bundle --file "$HOME/.config/darwin/Brewfile"
   fi
 
-  # if __ana_has fish; then
-  #   echo "Setting Fish as default shell..."
-  #   echo `which fish` | sudo tee -a /etc/shells
-  #   chsh -s `which fish`
-  # fi
+  if __ana_has fish; then
+    if ! grep 'fish' /etc/shells; then
+      echo "Setting Fish as default shell..."
+      echo `which fish` | sudo tee -a /etc/shells
+    fi
+    chsh -s `which fish`
+  fi
 fi
 
