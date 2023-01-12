@@ -31,10 +31,14 @@ source "$FDOTDIR/aliases.fish"
 #     zoxide init fish | source
 # end
 
-# ensure_repo "asdf-vm/asdf" "$ASDF_DATA_DIR"
+ensure_repo "asdf-vm/asdf" "$ASDF_DATA_DIR"
 
-if test -f "$ASDF_DATA_DIR/asdf.fish"
-  source "$ASDF_DATA_DIR/asdf.fish"
+# if test -f "$ASDF_DATA_DIR/asdf.fish"
+#   source "$ASDF_DATA_DIR/asdf.fish"
+# end
+
+if test -f /opt/homebrew/opt/asdf/libexec/asdf.fish
+    source /opt/homebrew/opt/asdf/libexec/asdf.fish
 end
 
 if status is-interactive
